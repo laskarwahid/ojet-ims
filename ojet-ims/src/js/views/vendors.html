@@ -1,0 +1,37 @@
+<div class="oj-hybrid-padding">
+    <oj-c-button style="float: right;" id="buttonOpener" on-oj-action="[[open]]" chroming="danger" label="Add New"><span slot="startIcon" class="oj-ux-ico-plus"></span></oj-c-button>
+    <oj-dialog id="modalDialog1" dialog-title="Modal Dialog" aria-describedby="desc">
+        <div slot="body">
+            <oj-form-layout
+            id="formLayoutOptions"
+            max-columns="1"
+            direction="row"
+            user-assistance-density="compact">
+                <oj-input-text id="name" value="{{name}}" label-hint="Name" required></oj-input-text>
+                <oj-input-text id="email" value="{{email}}" label-hint="Email"></oj-input-text>
+                <oj-input-text id="pass" value="{{pass}}" label-hint="Password"></oj-input-text>
+                <oj-input-text id="address" value="{{address}}" label-hint="Address"></oj-input-text>
+                <oj-button id="addnew" on-oj-action="[[addnew]]">Add</oj-button>
+          </oj-form-layout>
+        </div>
+        <div slot="footer">
+          <oj-button id="okButton" on-oj-action="[[close]]">OK</oj-button>
+        </div>
+    </oj-dialog>
+
+    <oj-bind-text value="[[vendors.length]]"></oj-bind-text>
+
+    <oj-bind-if test="[[vendors.length    > 0]]">
+        <oj-table
+            id="table"
+            aria-label="Vendors Table"
+            data="[[vendors]]"
+            columns='[{"headerText": "Id", "field": "vendor_id","headerClassName": "oj-sm-only-hide","className": "oj-sm-only-hide" },
+                {"headerText": "Name", "field": "name","headerClassName": "oj-sm-only-hide","className": "oj-sm-only-hide"},
+                {"headerText": "Email", "field": "email","headerClassName": "oj-sm-only-hide","className": "oj-sm-only-hide"},
+                {"headerText": "Address", "field": "address","headerClassName": "oj-sm-only-hide","className": "oj-sm-only-hide"},
+                {"headerText": "Password", "field": "pass","headerClassName": "oj-sm-only-hide","className": "oj-sm-only-hide"}]'
+            class="demo-table-container">
+        </oj-table>
+    </oj-bind-if>
+</div>
